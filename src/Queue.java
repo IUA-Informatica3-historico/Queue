@@ -32,4 +32,11 @@ public class Queue<T> {
         return tmp;
     }
 
+    public boolean esVacias() {
+        return frente == null;
+    }
+
+    public void vaciar() {
+        frente = fondo = null;
+    }
 }
