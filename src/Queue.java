@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
 public class Queue<T> {
     private Nodo<T> frente;
     private Nodo<T> fondo;
@@ -17,5 +19,17 @@ public class Queue<T> {
         }
     }
 
+    public T sacar() throws Exception {
+        if (frente == null)
+            throw new Exception();
+
+        T tmp = frente.getDato();
+        if (frente.getNext() == null) {
+            frente = fondo = null;
+        } else {
+            frente = frente.getNext();
+        }
+        return tmp;
+    }
 
 }
